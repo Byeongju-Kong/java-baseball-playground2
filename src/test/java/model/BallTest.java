@@ -16,19 +16,19 @@ class BallTest {
 
     @Test
     @DisplayName("같은 값과 다른 위치의 Ball객체를 받아 BallStatus.BALL을 반환한다")
-    void check_Ball() {
+    void compare_Ball() {
         assertThat(userBall.compare(new Ball(2, new BaseballNumber(1)))).isEqualTo(BallStatus.BALL);
     }
 
     @Test
     @DisplayName("같은 값과 같은 위치의 Ball객체를 받아 BallStatus.STRIKE를 반환한다")
-    void check_Strike() {
+    void compare_Strike() {
         assertThat(userBall.compare(new Ball(1, new BaseballNumber(1)))).isEqualTo(BallStatus.STRIKE);
     }
 
     @Test
     @DisplayName("다른 값과 다른 위치의 Ball객체를 받아 BallStatus.NOTHING을 반환한다")
-    void check_Nothing() {
+    void compare_Nothing() {
         assertThat(userBall.compare(new Ball(2, new BaseballNumber(2)))).isEqualTo(BallStatus.NOTHING);
     }
 }
