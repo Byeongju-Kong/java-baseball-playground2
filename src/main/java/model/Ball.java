@@ -9,7 +9,7 @@ public class Ball {
         this.number = number;
     }
 
-    public BallStatus check(Ball anotherBall) {
+    public BallStatus compare(Ball anotherBall) {
         if (anotherBall.isEqualNumberInDifferentPosition(position, number)) {
             return BallStatus.BALL;
         }
