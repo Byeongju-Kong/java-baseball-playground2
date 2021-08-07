@@ -26,5 +26,4 @@ public class Ball {
     private boolean isEqualNumberInSamePosition(int position, BaseballNumber number) {
         return this.position == position && this.number.equals(number);
     }
-
 }
