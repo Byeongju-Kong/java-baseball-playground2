@@ -12,6 +12,13 @@ public class BaseballNumber {
         this.number = number;
     }
 
+    public BaseballNumber(String number) {
+        if (isInvalidNumber(Integer.parseInt(number))) {
+            throw new IllegalArgumentException("야구게임을 위한 숫자가 1보다 작거나 9보다 큽니다");
+        }
+        this.number = Integer.parseInt(number);
+    }
+
     private boolean isInvalidNumber(int number) {
         return number < 1 || number > 9;
     }
