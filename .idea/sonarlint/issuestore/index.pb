@@ -1,6 +1,4 @@
 
-Q
-!src/test/java/model/BallTest.java,4/8/48daeb0135aa8653082d78b6ac0ae98813f466a3
 [
 +src/test/java/model/BaseballNumberTest.java,0/4/04eb3ea3e2481ad7dd41c4f58b7572e0f3e6056f
 ]
