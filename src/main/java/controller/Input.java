@@ -12,4 +12,8 @@ public class Input {
         return SCANNER.nextLine()
                 .split("");
     }
+
+    public static int inputRestart() {
+        return Integer.parseInt(SCANNER.nextLine());
+    }
 }
