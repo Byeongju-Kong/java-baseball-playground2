@@ -9,11 +9,10 @@ public class Count {
         ball = 0;
     }
 
-    public void countUpStrike() {
-        strike++;
-    }
-
-    public void countUpBall() {
+    public void countUp(BallStatus ballStatus) {
+        if(ballStatus == BallStatus.STRIKE) {
+            strike++;
+        }
         ball++;
     }
 

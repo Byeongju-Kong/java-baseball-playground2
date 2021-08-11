@@ -9,20 +9,20 @@ class CountTest {
     Count count = new Count();
 
     @Test
-    @DisplayName("countUpStrike을 호출하면 Strike 카운트가 1 증가한다.")
+    @DisplayName("BallStatus.Strike를 받아 Strike 카운트를 1 증가시킨다.")
     void countUpStrike(){
-        count.countUpStrike();
+        count.countUp(BallStatus.STRIKE);
         assertThat(count.getStrike()).isEqualTo(1);
-        count.countUpStrike();
+        count.countUp(BallStatus.STRIKE);
         assertThat(count.getStrike()).isEqualTo(2);
     }
 
     @Test
-    @DisplayName("countUpBall을 호출하면 Ball 카운트가 1 증가한다.")
+    @DisplayName("BallStatus.Ball을 받아 Ball 카운트를 1 증가시킨다")
     void countUpBall() {
-        count.countUpBall();
+        count.countUp(BallStatus.BALL);
         assertThat(count.getBall()).isEqualTo(1);
-        count.countUpBall();
+        count.countUp(BallStatus.BALL);
         assertThat(count.getBall()).isEqualTo(2);
     }
 }
