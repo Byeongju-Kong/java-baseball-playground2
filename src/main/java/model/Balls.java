@@ -30,6 +30,10 @@ public class Balls {
         return validatedBalls;
     }
 
+    public List<Ball> getNumberBalls() {
+        return numberBalls;
+    }
+
     public BallStatus compare(Ball ball) {
         return numberBalls.stream()
                 .map(target -> target.compare(ball))
