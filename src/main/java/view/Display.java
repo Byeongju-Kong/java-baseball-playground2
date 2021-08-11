@@ -6,8 +6,8 @@ public class Display {
     private Display() {
     }
 
-    public static void alertInput() {
-        System.out.print("숫자를 입력하세요 : ");
+    public static void alertInput(int roundNumber) {
+        System.out.print(roundNumber + "-Round 숫자를 입력하세요 : ");
     }
 
     public static void alertRestartInput() {
