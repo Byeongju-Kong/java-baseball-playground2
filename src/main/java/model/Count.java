@@ -10,10 +10,12 @@ public class Count {
     }
 
     public void countUp(BallStatus ballStatus) {
-        if(ballStatus == BallStatus.STRIKE) {
+        if (ballStatus == BallStatus.STRIKE) {
             strike++;
         }
-        ball++;
+        if (ballStatus == BallStatus.BALL) {
+            ball++;
+        }
     }
 
     public int getStrike() {
