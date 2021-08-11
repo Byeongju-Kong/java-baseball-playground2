@@ -3,7 +3,12 @@ package util;
 import model.Ball;
 import model.BaseballNumber;
 
-import java.util.*;
+import java.util.Random;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.stream.IntStream;
 
 public class RandomNumber {
