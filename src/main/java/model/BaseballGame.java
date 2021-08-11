@@ -10,11 +10,11 @@ public class BaseballGame {
     public BaseballGame(String[] userBalls, List<Ball> systemBalls) {
         this.userBalls = new Balls(userBalls);
         this.systemBalls = new Balls(systemBalls);
-        count = new Count();
         checkCount();
     }
 
     private void checkCount() {
+        count = new Count();
         userBalls.getNumberBalls()
                 .forEach(ball -> count.countUp(systemBalls.compare(ball)));
     }
@@ -28,6 +28,7 @@ public class BaseballGame {
     }
 
     public Count getCount() {
+        checkCount();
         return count;
     }
 }
