@@ -25,4 +25,8 @@ public class Display {
     public static void showNothing() {
         System.out.println("Nothing");
     }
+
+    public static void alertSuccess() {
+        System.out.println("정답입니다!");
+    }
 }
