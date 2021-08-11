@@ -37,9 +37,8 @@ public class GameController {
         baseballGame = new BaseballGame(input(), generateThreeRandomBalls());
         while (baseballGame.isNotOver()) {
             showRoundResult();
-            Display.alertInput(roundNumber);
+            Display.alertInput(++roundNumber);
             baseballGame.resetUserBalls(input());
-            roundNumber++;
         }
         Display.alertSuccess();
     }
