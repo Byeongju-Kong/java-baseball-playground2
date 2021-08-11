@@ -1,5 +1,8 @@
 package model;
 
+import model.ball.Ball;
+import model.ball.Balls;
+
 import java.util.List;
 
 public class BaseballGame {

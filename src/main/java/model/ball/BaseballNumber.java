@@ -1,4 +1,4 @@
-package model;
+package model.ball;
 
 import java.util.Objects;
 

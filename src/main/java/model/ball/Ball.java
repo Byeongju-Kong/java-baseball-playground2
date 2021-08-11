@@ -1,4 +1,6 @@
-package model;
+package model.ball;
+
+import model.BallStatus;
 
 public class Ball {
     private final int position;

@@ -1,4 +1,6 @@
-package model;
+package model.ball;
+
+import model.BallStatus;
 
 import java.util.ArrayList;
 import java.util.Arrays;

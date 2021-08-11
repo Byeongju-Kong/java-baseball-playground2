@@ -1,7 +1,7 @@
 package util;
 
-import model.Ball;
-import model.BaseballNumber;
+import model.ball.Ball;
+import model.ball.BaseballNumber;
 
 import java.util.Random;
 import java.util.Set;

@@ -1,5 +1,9 @@
-package model;
+package model.ball;
 
+import model.BallStatus;
+import model.ball.Ball;
+import model.ball.Balls;
+import model.ball.BaseballNumber;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 class BallsTest {
-    private Balls Balls;
+    private model.ball.Balls Balls;
 
     @Test
     @DisplayName("중복이 있는 숫자를 가진 String[]을 받아 객체를 생성하면 예외를 발생시킨다.")
