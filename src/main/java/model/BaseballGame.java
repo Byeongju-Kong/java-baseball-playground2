@@ -20,6 +20,7 @@ public class BaseballGame {
     }
 
     public boolean isNotOver() {
+        checkCount();
         return count.getStrike() != 3;
     }
 
