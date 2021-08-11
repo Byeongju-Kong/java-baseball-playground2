@@ -22,7 +22,7 @@ public class Display {
         System.out.println(count.getStrike() + "Strike " + count.getBall() + "Ball");
     }
 
-    public static void showResult() {
+    public static void showNothing() {
         System.out.println("Nothing");
     }
 }
