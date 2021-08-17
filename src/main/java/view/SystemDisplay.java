@@ -1,7 +1,5 @@
 package view;
 
-import model.dto.CountDTO;
-
 public class SystemDisplay {
     private SystemDisplay() {
     }
@@ -16,13 +14,5 @@ public class SystemDisplay {
 
     public static void alertOver() {
         System.out.println("게임을 종료합니다.");
-    }
-
-    public static void showResult(CountDTO count) {
-        System.out.println(count.getStrike() + "Strike " + count.getBall() + "Ball");
-    }
-
-    public static void showNothing() {
-        System.out.println("Nothing");
     }
 }
