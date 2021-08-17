@@ -1,6 +1,5 @@
 package model.ball;
 
-import model.ball.BaseballNumber;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
