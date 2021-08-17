@@ -5,8 +5,11 @@ import model.ball.Ball;
 import model.ball.BaseballNumber;
 import model.dto.CountDTO;
 import model.dto.InputNumberDTO;
+import view.RoundDisplay;
 import view.SystemDisplay;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,21 +34,16 @@ public class GameController {
 
     private void showRoundResult() {
         CountDTO count = baseballGame.getCount();
-        if (count.isNothing()) {
-            SystemDisplay.showNothing();
-        }
-        else if(!count.isNothing()) {
-            SystemDisplay.showResult(count);
-        }
+        RoundDisplay.showRoundResult(count);
     }
 
     private List<Ball> generateThreeRandomBalls() {
-        List<Ball> randomThreeBalls = new ArrayList<>();
+        Set<Ball> randomThreeBalls = new HashSet<>();
         int index = 0;
-        while(randomThreeBalls.stream().distinct().count() < 3) {
+        while (randomThreeBalls.size() < 3) {
             randomThreeBalls.add(new Ball(index, new BaseballNumber(generateRandomNumber(MIN_NUMBER, MAX_NUMBER))));
             index++;
         }
-        return randomThreeBalls;
+        return new ArrayList<>(randomThreeBalls);
     }
 }
