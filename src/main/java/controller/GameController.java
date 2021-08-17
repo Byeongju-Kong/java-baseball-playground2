@@ -5,7 +5,7 @@ import model.ball.Ball;
 import model.ball.BaseballNumber;
 import model.dto.CountDTO;
 import model.dto.InputNumberDTO;
-import view.Display;
+import view.SystemDisplay;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +20,11 @@ public class GameController {
     private static final int MAX_NUMBER = 9;
 
     public void play() {
-        Display.alertInput();
+        SystemDisplay.alertInput();
         baseballGame = new BaseballGame(new InputNumberDTO(input()).getValidatedInput(), generateThreeRandomBalls());
         while (baseballGame.isNotOver()) {
             showRoundResult();
-            Display.alertInput();
+            SystemDisplay.alertInput();
             baseballGame.resetUserBalls(new InputNumberDTO(input()).getValidatedInput());
         }
     }
@@ -32,10 +32,10 @@ public class GameController {
     private void showRoundResult() {
         CountDTO count = baseballGame.getCount();
         if (count.isNothing()) {
-            Display.showNothing();
+            SystemDisplay.showNothing();
         }
         else if(!count.isNothing()) {
-            Display.showResult(count);
+            SystemDisplay.showResult(count);
         }
     }
 
