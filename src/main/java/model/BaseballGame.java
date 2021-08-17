@@ -10,7 +10,7 @@ public class BaseballGame {
     private final Balls systemBalls;
     private Count count;
 
-    public BaseballGame(String[] userBalls, List<Ball> systemBalls) {
+    public BaseballGame(int[] userBalls, List<Ball> systemBalls) {
         this.userBalls = new Balls(userBalls);
         this.systemBalls = new Balls(systemBalls);
         checkCount();
@@ -27,7 +27,7 @@ public class BaseballGame {
         return count.getStrike() != 3;
     }
 
-    public void resetUserBalls(String[] userBalls) {
+    public void resetUserBalls(int[] userBalls) {
         this.userBalls = new Balls(userBalls);
     }
 
