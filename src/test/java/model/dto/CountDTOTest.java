@@ -27,4 +27,12 @@ class CountDTOTest {
         count.countUp(BallStatus.BALL);
         assertThat(count.getBall()).isEqualTo(2);
     }
+
+    @Test
+    @DisplayName("낫씽일 경우를 반환한다")
+    void isNothing() {
+        count = new CountDTO();
+        count.countUp(BallStatus.NOTHING);
+        assertThat(count.isNothing()).isTrue();
+    }
 }
