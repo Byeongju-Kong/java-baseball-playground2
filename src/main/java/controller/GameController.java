@@ -20,7 +20,7 @@ import static util.RandomNumber.generateRandomNumber;
 public class GameController {
     private BaseballGame baseballGame;
     private static final int MIN_NUMBER = 1;
-    private static final int MAX_NUMBER = 9;
+    private static final int MAX_NUMBER = 10;
 
     public void play() {
         SystemDisplay.alertInput();
