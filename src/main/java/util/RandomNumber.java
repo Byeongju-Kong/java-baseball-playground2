@@ -8,7 +8,7 @@ public class RandomNumber {
     private RandomNumber() {
     }
 
-    private static int generateRandomNumber(int minNumber, int maxNumber) {
+    public static int generateRandomNumber(int minNumber, int maxNumber) {
         return minNumber + RANDOM.nextInt(maxNumber - minNumber + 1);
     }
 }
