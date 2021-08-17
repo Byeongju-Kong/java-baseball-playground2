@@ -2,6 +2,7 @@ package controller;
 
 import model.BaseballGame;
 import model.Count;
+import model.dto.InputNumberDTO;
 import view.Display;
 
 import static controller.Input.input;
@@ -34,11 +35,11 @@ public class GameController {
 
     private void play() {
         Display.alertInput(roundNumber);
-        baseballGame = new BaseballGame(input(), generateThreeRandomBalls());
+        baseballGame = new BaseballGame(new InputNumberDTO(input()).getValidatedInput(), generateThreeRandomBalls());
         while (baseballGame.isNotOver()) {
             showRoundResult();
             Display.alertInput(++roundNumber);
-            baseballGame.resetUserBalls(input());
+            baseballGame.resetUserBalls(new InputNumberDTO(input()).getValidatedInput());
         }
         Display.alertSuccess();
     }
