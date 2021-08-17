@@ -16,10 +16,12 @@ import static util.RandomNumber.generateRandomNumber;
 
 public class GameController {
     private BaseballGame baseballGame;
+    private static final int MIN_NUMBER = 1;
+    private static final int MAX_NUMBER = 9;
 
     public void play() {
         Display.alertInput();
-        baseballGame = new BaseballGame(new InputNumberDTO(input()).getValidatedInput(), generateThreeRandomBalls(1, 9));
+        baseballGame = new BaseballGame(new InputNumberDTO(input()).getValidatedInput(), generateThreeRandomBalls());
         while (baseballGame.isNotOver()) {
             showRoundResult();
             Display.alertInput();
@@ -37,11 +39,11 @@ public class GameController {
         }
     }
 
-    private List<Ball> generateThreeRandomBalls(final int minNumber, final int maxNumber) {
+    private List<Ball> generateThreeRandomBalls() {
         List<Ball> randomThreeBalls = new ArrayList<>();
         int index = 0;
         while(randomThreeBalls.stream().distinct().count() < 3) {
-            randomThreeBalls.add(new Ball(index, new BaseballNumber(generateRandomNumber(minNumber, maxNumber))));
+            randomThreeBalls.add(new Ball(index, new BaseballNumber(generateRandomNumber(MIN_NUMBER, MAX_NUMBER))));
             index++;
         }
         return randomThreeBalls;
