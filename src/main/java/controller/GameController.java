@@ -1,47 +1,30 @@
 package controller;
 
 import model.BaseballGame;
+import model.ball.Ball;
+import model.ball.BaseballNumber;
 import model.dto.CountDTO;
 import model.dto.InputNumberDTO;
 import view.Display;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static controller.Input.input;
-import static controller.Input.inputRestart;
-import static util.RandomNumber.generateThreeRandomBalls;
+import static util.RandomNumber.generateRandomNumber;
+
 
 public class GameController {
     private BaseballGame baseballGame;
-    private static final int RESTART_NUMBER = 1;
-    private static final int END_NUMBER = 2;
-    private int roundNumber = 1;
 
-    private boolean willRestartGame() {
-        Display.alertRestartInput();
-        int restartNumber = inputRestart();
-        if (restartNumber != RESTART_NUMBER && restartNumber != END_NUMBER) {
-            throw new IllegalStateException("재시작 혹은 종료를 위한 입력이 잘못 되었습니다");
-        }
-        return restartNumber == RESTART_NUMBER;
-    }
-
-    public void run() {
-        boolean restart = true;
-        while (restart) {
-            play();
-            restart = willRestartGame();
-        }
-        Display.alertOver();
-    }
-
-    private void play() {
-        Display.alertInput(roundNumber);
-        baseballGame = new BaseballGame(new InputNumberDTO(input()).getValidatedInput(), generateThreeRandomBalls());
+    public void play() {
+        Display.alertInput();
+        baseballGame = new BaseballGame(new InputNumberDTO(input()).getValidatedInput(), generateThreeRandomBalls(1, 9));
         while (baseballGame.isNotOver()) {
             showRoundResult();
-            Display.alertInput(++roundNumber);
+            Display.alertInput();
             baseballGame.resetUserBalls(new InputNumberDTO(input()).getValidatedInput());
         }
-        Display.alertSuccess();
     }
 
     private void showRoundResult() {
@@ -52,5 +35,15 @@ public class GameController {
         else if(!count.isNothing()) {
             Display.showResult(count);
         }
+    }
+
+    private List<Ball> generateThreeRandomBalls(final int minNumber, final int maxNumber) {
+        List<Ball> randomThreeBalls = new ArrayList<>();
+        int index = 0;
+        while(randomThreeBalls.stream().distinct().count() < 3) {
+            randomThreeBalls.add(new Ball(index, new BaseballNumber(generateRandomNumber(minNumber, maxNumber))));
+            index++;
+        }
+        return randomThreeBalls;
     }
 }
