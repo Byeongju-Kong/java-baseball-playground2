@@ -1,10 +1,12 @@
-package model;
+package model.dto;
 
-public class Count {
+import model.BallStatus;
+
+public class CountDTO {
     private int strike;
     private int ball;
 
-    public Count() {
+    public CountDTO() {
         strike = 0;
         ball = 0;
     }

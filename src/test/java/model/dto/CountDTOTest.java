@@ -1,12 +1,14 @@
-package model;
+package model.dto;
 
+import model.BallStatus;
+import model.dto.CountDTO;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class CountTest {
-    Count count = new Count();
+class CountDTOTest {
+    CountDTO count = new CountDTO();
 
     @Test
     @DisplayName("BallStatus.Strike를 받아 Strike 카운트를 1 증가시킨다.")

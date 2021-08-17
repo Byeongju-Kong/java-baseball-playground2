@@ -2,13 +2,14 @@ package model;
 
 import model.ball.Ball;
 import model.ball.Balls;
+import model.dto.CountDTO;
 
 import java.util.List;
 
 public class BaseballGame {
     private Balls userBalls;
     private final Balls systemBalls;
-    private Count count;
+    private CountDTO count;
 
     public BaseballGame(int[] userBalls, List<Ball> systemBalls) {
         this.userBalls = new Balls(userBalls);
@@ -17,7 +18,7 @@ public class BaseballGame {
     }
 
     private void checkCount() {
-        count = new Count();
+        count = new CountDTO();
         userBalls.getNumberBalls()
                 .forEach(ball -> count.countUp(systemBalls.compare(ball)));
     }
@@ -31,7 +32,7 @@ public class BaseballGame {
         this.userBalls = new Balls(userBalls);
     }
 
-    public Count getCount() {
+    public CountDTO getCount() {
         checkCount();
         return count;
     }

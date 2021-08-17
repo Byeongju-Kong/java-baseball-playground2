@@ -1,6 +1,6 @@
 package view;
 
-import model.Count;
+import model.dto.CountDTO;
 
 public class Display {
     private Display() {
@@ -18,7 +18,7 @@ public class Display {
         System.out.println("게임을 종료합니다.");
     }
 
-    public static void showResult(Count count) {
+    public static void showResult(CountDTO count) {
         System.out.println(count.getStrike() + "Strike " + count.getBall() + "Ball");
     }
 

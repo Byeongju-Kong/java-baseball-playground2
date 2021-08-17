@@ -1,7 +1,7 @@
 package controller;
 
 import model.BaseballGame;
-import model.Count;
+import model.dto.CountDTO;
 import model.dto.InputNumberDTO;
 import view.Display;
 
@@ -45,7 +45,7 @@ public class GameController {
     }
 
     private void showRoundResult() {
-        Count count = baseballGame.getCount();
+        CountDTO count = baseballGame.getCount();
         if (count.isNothing()) {
             Display.showNothing();
         }
