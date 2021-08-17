@@ -19,7 +19,6 @@ public class SystemController {
             gameController.play();
             restart = willRestartGame();
         }
-        SystemDisplay.alertOver();
     }
 
     private boolean willRestartGame() {
