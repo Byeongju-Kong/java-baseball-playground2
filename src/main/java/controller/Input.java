@@ -8,9 +8,8 @@ public class Input {
     private Input() {
     }
 
-    public static String[] input() {
-        return SCANNER.nextLine()
-                .split("");
+    public static String input() {
+        return SCANNER.nextLine();
     }
 
     public static int inputRestart() {
