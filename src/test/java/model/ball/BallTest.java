@@ -1,8 +1,6 @@
 package model.ball;
 
 import model.BallStatus;
-import model.ball.Ball;
-import model.ball.BaseballNumber;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

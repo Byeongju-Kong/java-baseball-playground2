@@ -15,11 +15,11 @@ public class Balls {
         numberBalls = randomBalls;
     }
 
-    public Balls(String[] inputBalls) {
+    public Balls(int[] inputBalls) {
         numberBalls = validateInputBalls(inputBalls);
     }
 
-    private List<Ball> validateInputBalls(String[] inputBalls) {
+    private List<Ball> validateInputBalls(int[] inputBalls) {
         if (inputBalls.length != NUMBER_OF_BALLS) {
             throw new IllegalArgumentException("숫자의 개수가 잘못되었습니다.");
         }
