@@ -6,9 +6,9 @@ public class Ball {
     private final int position;
     private final BaseballNumber number;
 
-    public Ball(int position, BaseballNumber number) {
+    public Ball(int position, int number) {
         this.position = position;
-        this.number = number;
+        this.number = new BaseballNumber(number);
     }
 
     public BallStatus compare(Ball anotherBall) {

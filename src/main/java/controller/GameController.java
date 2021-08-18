@@ -2,16 +2,15 @@ package controller;
 
 import model.BaseballGame;
 import model.ball.Ball;
-import model.ball.BaseballNumber;
 import model.dto.CountDTO;
 import model.dto.InputNumberDTO;
 import view.RoundDisplay;
 import view.SystemDisplay;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static controller.Input.input;
 import static util.RandomNumber.generateRandomNumber;
@@ -42,7 +41,7 @@ public class GameController {
         Set<Ball> randomThreeBalls = new HashSet<>();
         int index = 0;
         while (randomThreeBalls.size() < 3) {
-            randomThreeBalls.add(new Ball(index, new BaseballNumber(generateRandomNumber(MIN_NUMBER, MAX_NUMBER))));
+            randomThreeBalls.add(new Ball(index, generateRandomNumber(MIN_NUMBER, MAX_NUMBER)));
             index++;
         }
         return new ArrayList<>(randomThreeBalls);

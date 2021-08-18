@@ -1,7 +1,6 @@
 package model;
 
 import model.ball.Ball;
-import model.ball.BaseballNumber;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -17,7 +16,7 @@ class BaseballGameTest {
     private BaseballGame baseballGame;
 
     @ParameterizedTest
-    @DisplayName("두 야구게임 숫자를 받아, Count객체를 반환한다.")
+    @DisplayName("두 야구게임 숫자를 받아, Count객체를 받아 StrikeCount를 얻는다.")
     @MethodSource("provideBallsAndStrikeCount")
     void getCount_Strike(int[] userNumbers, List<Ball> systemNumbers, int expect) {
         baseballGame = new BaseballGame(userNumbers, systemNumbers);
@@ -28,18 +27,18 @@ class BaseballGameTest {
     private static Stream<Arguments> provideBallsAndStrikeCount() {
         return Stream.of(
                 Arguments.of(new int[]{1, 2, 3},
-                        Arrays.asList(new Ball(0, new BaseballNumber(1)), new Ball(1, new BaseballNumber(2)), new Ball(2, new BaseballNumber(3))), 3),
+                        Arrays.asList(new Ball(0, 1), new Ball(1, 2), new Ball(2, 3)), 3),
                 Arguments.of(new int[]{1, 2, 3},
-                        Arrays.asList(new Ball(0, new BaseballNumber(1)), new Ball(1, new BaseballNumber(2)), new Ball(2, new BaseballNumber(4))), 2),
+                        Arrays.asList(new Ball(0, 1), new Ball(1, 2), new Ball(2, 4)), 2),
                 Arguments.of(new int[]{1, 2, 3},
-                        Arrays.asList(new Ball(0, new BaseballNumber(1)), new Ball(1, new BaseballNumber(4)), new Ball(2, new BaseballNumber(5))), 1),
+                        Arrays.asList(new Ball(0, 1), new Ball(1, 4), new Ball(2, 5)), 1),
                 Arguments.of(new int[]{1, 2, 3},
-                        Arrays.asList(new Ball(0, new BaseballNumber(4)), new Ball(1, new BaseballNumber(5)), new Ball(2, new BaseballNumber(6))), 0)
+                        Arrays.asList(new Ball(0, 4), new Ball(1, 5), new Ball(2, 6)), 0)
                 );
     }
 
     @ParameterizedTest
-    @DisplayName("두 야구게임 숫자를 받아, Count객체를 반환한다.")
+    @DisplayName("두 야구게임 숫자를 받아, Count객체를 받아 BallCount를 얻는다.")
     @MethodSource("provideBallsAndBallCount")
     void getCount_Ball(int[] userNumbers, List<Ball> systemNumbers, int expect) {
         baseballGame = new BaseballGame(userNumbers, systemNumbers);
@@ -50,14 +49,14 @@ class BaseballGameTest {
     private static Stream<Arguments> provideBallsAndBallCount() {
         return Stream.of(
                 Arguments.of(new int[]{1, 2, 3},
-                        Arrays.asList(new Ball(0, new BaseballNumber(2)), new Ball(1, new BaseballNumber(3)), new Ball(2, new BaseballNumber(1))), 3),
+                        Arrays.asList(new Ball(0, 3), new Ball(1, 1), new Ball(2, 2)), 3),
                 Arguments.of(new int[]{1, 2, 3},
-                        Arrays.asList(new Ball(0, new BaseballNumber(2)), new Ball(1, new BaseballNumber(3)), new Ball(2, new BaseballNumber(4))), 2),
+                        Arrays.asList(new Ball(0, 3), new Ball(1, 1), new Ball(2, 7)), 2),
                 Arguments.of(new int[]{1, 2, 3},
-                        Arrays.asList(new Ball(0, new BaseballNumber(2)), new Ball(1, new BaseballNumber(4)), new Ball(2, new BaseballNumber(5))), 1),
+                        Arrays.asList(new Ball(0, 3), new Ball(1, 4), new Ball(2, 5)), 1),
                 Arguments.of(new int[]{1, 2, 3},
-                        Arrays.asList(new Ball(0, new BaseballNumber(4)), new Ball(1, new BaseballNumber(5)), new Ball(2, new BaseballNumber(6))), 0)
-        );
+                        Arrays.asList(new Ball(0, 4), new Ball(1, 5), new Ball(2, 6)), 0)
+                );
     }
 
     @ParameterizedTest
@@ -72,13 +71,13 @@ class BaseballGameTest {
     private static Stream<Arguments> provideIsNotOver() {
         return Stream.of(
                 Arguments.of(new int[]{1, 2, 3},
-                        Arrays.asList(new Ball(0, new BaseballNumber(1)), new Ball(1, new BaseballNumber(2)), new Ball(2, new BaseballNumber(3))), false),
+                        Arrays.asList(new Ball(0, 1), new Ball(1, 2), new Ball(2, 3)), false),
                 Arguments.of(new int[]{1, 2, 3},
-                        Arrays.asList(new Ball(0, new BaseballNumber(2)), new Ball(1, new BaseballNumber(3)), new Ball(2, new BaseballNumber(4))), true),
+                        Arrays.asList(new Ball(0, 2), new Ball(1, 3), new Ball(2, 4)), true),
                 Arguments.of(new int[]{1, 2, 3},
-                        Arrays.asList(new Ball(0, new BaseballNumber(2)), new Ball(1, new BaseballNumber(4)), new Ball(2, new BaseballNumber(5))), true),
+                        Arrays.asList(new Ball(0, 3), new Ball(1, 4), new Ball(2, 5)), true),
                 Arguments.of(new int[]{1, 2, 3},
-                        Arrays.asList(new Ball(0, new BaseballNumber(4)), new Ball(1, new BaseballNumber(5)), new Ball(2, new BaseballNumber(6))), true)
+                        Arrays.asList(new Ball(0, 4), new Ball(1, 5), new Ball(2, 6)), true)
         );
     }
 }

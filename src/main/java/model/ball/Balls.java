@@ -28,7 +28,7 @@ public class Balls {
         }
         List<Ball> validatedBalls = new ArrayList<>();
         IntStream.range(0, NUMBER_OF_BALLS)
-                .forEach(index -> validatedBalls.add(new Ball(index, new BaseballNumber(inputBalls[index]))));
+                .forEach(index -> validatedBalls.add(new Ball(index, inputBalls[index])));
         return validatedBalls;
     }
 

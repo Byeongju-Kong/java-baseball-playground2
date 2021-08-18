@@ -39,9 +39,9 @@ class BallsTest {
 
     private static Stream<Arguments> provideBallAndBallStatus() {
         return Stream.of(
-                Arguments.of(new Ball(0, new BaseballNumber(3)),BallStatus.STRIKE),
-                Arguments.of(new Ball(1, new BaseballNumber(3)), BallStatus.BALL),
-                Arguments.of(new Ball(1, new BaseballNumber(4)), BallStatus.NOTHING)
+                Arguments.of(new Ball(0, 3),BallStatus.STRIKE),
+                Arguments.of(new Ball(1, 3), BallStatus.BALL),
+                Arguments.of(new Ball(1, 9), BallStatus.NOTHING)
         );
     }
 }

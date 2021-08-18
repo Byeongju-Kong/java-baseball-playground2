@@ -1,7 +1,6 @@
 package model.dto;
 
 import model.BallStatus;
-import model.dto.CountDTO;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
