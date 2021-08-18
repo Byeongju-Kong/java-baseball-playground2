@@ -1,10 +1,10 @@
 package model.dto;
 
+import model.ball.Balls;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 
 class InputDTOTest {
     @Test
@@ -19,8 +19,7 @@ class InputDTOTest {
     @Test
     @DisplayName("문자 요소가 포함된 문자열을 받으면 예외를 발생시킨다.")
     void getValidatedToken_ExceptionByNonNumber() {
-        assertThatThrownBy(() -> new InputNumberDTO("ikl"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("숫자가 아닌 입력이 있습니다.");
+        assertThatIllegalArgumentException().isThrownBy(() -> new InputNumberDTO("ikl"))
+                .withMessage("숫자가 아닌 입력이 있습니다.");
     }
 }
