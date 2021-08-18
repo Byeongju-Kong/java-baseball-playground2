@@ -11,7 +11,9 @@ class InputDTOTest {
     @DisplayName("숫자만을 요소로 가지는 문자열을 받아 유효검사를 하고 int[]로 반환한다. ")
     void getValidatedToken() {
         InputNumberDTO inputDTO = new InputNumberDTO("123");
-        assertThat(inputDTO.getValidatedInput()).isEqualTo(new int[]{1, 2, 3});
+        int[] actual = inputDTO.getValidatedInput();
+        int[] expect = new int[]{1, 2, 3};
+        assertThat(actual).isEqualTo(expect);
     }
 
     @Test
