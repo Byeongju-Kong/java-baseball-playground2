@@ -16,16 +16,20 @@ public class Balls {
     }
 
     public Balls(int[] inputBalls) {
-        numberBalls = validateInputBalls(inputBalls);
+        validateInputBalls(inputBalls);
+        numberBalls = parseInputBalls(inputBalls);
     }
 
-    private List<Ball> validateInputBalls(int[] inputBalls) {
+    private void validateInputBalls(int[] inputBalls) {
         if (inputBalls.length != NUMBER_OF_BALLS) {
             throw new IllegalArgumentException("숫자의 개수가 잘못되었습니다.");
         }
         if (Arrays.stream(inputBalls).distinct().count() != NUMBER_OF_BALLS) {
             throw new IllegalArgumentException("숫자에 중복이 있습니다.");
         }
+    }
+
+    private List<Ball> parseInputBalls(int[] inputBalls) {
         List<Ball> validatedBalls = new ArrayList<>();
         IntStream.range(0, NUMBER_OF_BALLS)
                 .forEach(index -> validatedBalls.add(new Ball(index, inputBalls[index])));
