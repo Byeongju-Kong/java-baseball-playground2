@@ -12,20 +12,20 @@ public class Ball {
     }
 
     public BallStatus compare(Ball anotherBall) {
-        if (anotherBall.isEqualNumberInDifferentPosition(position, number)) {
+        if (isEqualNumberInDifferentPosition(anotherBall.position, anotherBall.number)) {
             return BallStatus.BALL;
         }
-        else if(anotherBall.isEqualNumberInSamePosition(position, number)) {
+        else if(isEqualNumberInSamePosition(anotherBall.position, anotherBall.number)) {
             return BallStatus.STRIKE;
         }
         return BallStatus.NOTHING;
     }
 
     private boolean isEqualNumberInDifferentPosition(int position, BaseballNumber number) {
-        return this.position != position && this.number.equals(number);
+        return this.number.equals(number) && this.position != position;
     }
 
     private boolean isEqualNumberInSamePosition(int position, BaseballNumber number) {
-        return this.position == position && this.number.equals(number);
+        return this.number.equals(number) && this.position == position;
     }
 }
