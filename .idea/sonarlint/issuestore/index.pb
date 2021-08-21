@@ -1,8 +1,6 @@
 
 <
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
-T
-$src/main/java/util/RandomNumber.java,b/c/bc664676a0074c2e1812df93638f6dc681809b0c
 X
 (src/test/java/util/RandomNumberTest.java,9/7/9781e76bafd1d514f9ac688e4823cd5be9fda29b
 U
