@@ -1,23 +1,12 @@
 package model.dto;
 
-import model.BallStatus;
-
 public class CountDTO {
-    private int strike;
-    private int ball;
+    private final int strike;
+    private final int ball;
 
-    public CountDTO() {
-        strike = 0;
-        ball = 0;
-    }
-
-    public void countUp(BallStatus ballStatus) {
-        if (ballStatus == BallStatus.STRIKE) {
-            strike++;
-        }
-        if (ballStatus == BallStatus.BALL) {
-            ball++;
-        }
+    public CountDTO(int strikeCount, int ballCount) {
+        strike = strikeCount;
+        ball = ballCount;
     }
 
     public int getStrike() {
