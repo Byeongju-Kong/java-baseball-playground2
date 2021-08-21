@@ -1,10 +1,12 @@
 package model.ball;
 
-import model.BallStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
@@ -27,11 +29,40 @@ class BallsTest {
     }
 
     @ParameterizedTest
-    @DisplayName("Ball 객체를 받아 옳은 BallStatus를 반환한다")
-    @CsvSource({"0, 3, STRIKE", "1, 3, BALL", "1, 9, NOTHING"})
-    void compare(int ballPosition, int ballNumber, BallStatus expected) {
-        Balls balls = new Balls(new int[]{3, 7, 8});
-        Ball otherBall = new Ball(ballPosition, ballNumber);
-        assertThat(balls.compare(otherBall)).isEqualTo(expected);
+    @DisplayName("Balls 객체를 받아 볼 카운트를 반환한다.")
+    @MethodSource("provideBallNumbersForStrikeCount")
+    void countSameNumberInSamePosition(int[] userBallNumbers, int[] systemBallNumbers, int expect) {
+        Balls userBalls = new Balls(userBallNumbers);
+        Balls systemBalls = new Balls(systemBallNumbers);
+        int actual = userBalls.countSameNumberInSamePosition(systemBalls);
+        assertThat(actual).isEqualTo(expect);
+    }
+
+    private static Stream<Arguments> provideBallNumbersForStrikeCount(){
+        return Stream.of(
+                Arguments.of(new int[]{1, 2, 3}, new int[]{1, 2, 3}, 3),
+                Arguments.of(new int[]{1, 2, 3}, new int[]{1, 2, 4}, 2),
+                Arguments.of(new int[]{1, 2, 3}, new int[]{1, 3, 2}, 1),
+                Arguments.of(new int[]{1, 2, 3}, new int[]{4, 5, 6}, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @DisplayName("Balls 객체를 받아 볼 카운트를 반환한다.")
+    @MethodSource("provideBallNumbersForBallCount")
+    void countSameNumberInDifferentPosition(int[] userBallNumbers, int[] systemBallNumbers, int expect) {
+        Balls userBalls = new Balls(userBallNumbers);
+        Balls systemBalls = new Balls(systemBallNumbers);
+        int actual = userBalls.countSameNumberInDifferentPosition(systemBalls);
+        assertThat(actual).isEqualTo(expect);
+    }
+
+    private static Stream<Arguments> provideBallNumbersForBallCount(){
+        return Stream.of(
+                Arguments.of(new int[]{1, 2, 3}, new int[]{3, 1, 2}, 3),
+                Arguments.of(new int[]{1, 2, 3}, new int[]{2, 1, 4}, 2),
+                Arguments.of(new int[]{1, 2, 3}, new int[]{2, 5, 4}, 1),
+                Arguments.of(new int[]{1, 2, 3}, new int[]{1, 2, 3}, 0)
+        );
     }
 }

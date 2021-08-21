@@ -1,7 +1,5 @@
 package model.ball;
 
-import model.BallStatus;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -36,15 +34,17 @@ public class Balls {
         return validatedBalls;
     }
 
-    public List<Ball> getNumberBalls() {
-        return numberBalls;
+    public int countSameNumberInSamePosition(Balls otherBalls) {
+            return (int) otherBalls.numberBalls.stream()
+                    .flatMap(systemBall -> this.numberBalls.stream()
+                            .filter(userBall -> userBall.isEqualNumberInSamePosition(systemBall)))
+                    .count();
     }
 
-    public BallStatus compare(Ball ball) {
-        return numberBalls.stream()
-                .map(target -> target.compare(ball))
-                .filter(BallStatus::isNotNothing)
-                .findFirst()
-                .orElse(BallStatus.NOTHING);
+    public int countSameNumberInDifferentPosition(Balls otherBalls) {
+        return (int) otherBalls.numberBalls.stream()
+                .flatMap(systemBall -> this.numberBalls.stream()
+                        .filter(userBall -> userBall.isEqualNumberInDifferentPosition(systemBall)))
+                .count();
     }
 }
