@@ -9,23 +9,14 @@ import java.util.List;
 public class BaseballGame {
     private Balls userBalls;
     private final Balls systemBalls;
-    private CountDTO count;
 
     public BaseballGame(int[] userBalls, List<Ball> systemBalls) {
         this.userBalls = new Balls(userBalls);
         this.systemBalls = new Balls(systemBalls);
-        checkCount();
-    }
-
-    private void checkCount() {
-        count = new CountDTO();
-        userBalls.getNumberBalls()
-                .forEach(ball -> count.countUp(systemBalls.compare(ball)));
     }
 
     public boolean isNotOver() {
-        checkCount();
-        return count.getStrike() != 3;
+        return userBalls.countSameNumberInSamePosition(systemBalls) != 3;
     }
 
     public void resetUserBalls(int[] userBalls) {
@@ -33,7 +24,8 @@ public class BaseballGame {
     }
 
     public CountDTO getCount() {
-        checkCount();
-        return count;
+        int strikeCount = userBalls.countSameNumberInSamePosition(systemBalls);
+        int ballCount = userBalls.countSameNumberInDifferentPosition(systemBalls);
+        return new CountDTO(strikeCount, ballCount);
     }
 }
