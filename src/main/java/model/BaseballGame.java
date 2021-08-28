@@ -1,31 +1,28 @@
 package model;
 
-import model.ball.Ball;
 import model.ball.Balls;
 import model.dto.CountDTO;
 
-import java.util.List;
-
 public class BaseballGame {
-    private Balls userBalls;
     private final Balls systemBalls;
+    private boolean notOver;
 
-    public BaseballGame(int[] userBalls, List<Ball> systemBalls) {
-        this.userBalls = new Balls(userBalls);
+    public BaseballGame(int[] systemBalls) {
         this.systemBalls = new Balls(systemBalls);
+        notOver = true;
     }
 
     public boolean isNotOver() {
-        return userBalls.countSameNumberInSamePosition(systemBalls) != 3;
+        return notOver;
     }
 
-    public void resetUserBalls(int[] userBalls) {
-        this.userBalls = new Balls(userBalls);
-    }
-
-    public CountDTO getCount() {
-        int strikeCount = userBalls.countSameNumberInSamePosition(systemBalls);
-        int ballCount = userBalls.countSameNumberInDifferentPosition(systemBalls);
+    public CountDTO getCount(int[] inputBalls) {
+        Balls userBalls = new Balls(inputBalls);
+        int strikeCount = systemBalls.countSameNumberInSamePosition(userBalls);
+        int ballCount = systemBalls.countSameNumberInDifferentPosition(userBalls);
+        if (strikeCount == 3) {
+            notOver = false;
+        }
         return new CountDTO(strikeCount, ballCount);
     }
 }
