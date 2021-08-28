@@ -1,15 +1,12 @@
 package controller;
 
 import model.BaseballGame;
-import model.ball.Ball;
 import model.dto.CountDTO;
 import model.dto.InputNumberDTO;
 import view.RoundDisplay;
 import view.SystemDisplay;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import static controller.Input.input;
@@ -22,32 +19,28 @@ public class GameController {
     private static final int MAX_NUMBER = 9;
 
     public void play() {
-        SystemDisplay.alertInput();
-        baseballGame = new BaseballGame(new InputNumberDTO(input()).getValidatedInput(), generateThreeRandomBalls());
+        baseballGame = new BaseballGame(generateThreeRandomBalls());
         playWhileNotOver();
         SystemDisplay.alertOver();
     }
 
     private void playWhileNotOver() {
         while (baseballGame.isNotOver()) {
-            showRoundResult();
             SystemDisplay.alertInput();
-            baseballGame.resetUserBalls(new InputNumberDTO(input()).getValidatedInput());
+            showRoundResult();
         }
     }
 
     private void showRoundResult() {
-        CountDTO count = baseballGame.getCount();
+        CountDTO count = baseballGame.getCount(new InputNumberDTO(input()).getValidatedInput());
         RoundDisplay.showRoundResult(count);
     }
 
-    private List<Ball> generateThreeRandomBalls() {
-        Set<Ball> randomThreeBalls = new HashSet<>();
-        int index = 0;
+    private int[] generateThreeRandomBalls() {
+        Set<Integer> randomThreeBalls = new HashSet<>();
         while (randomThreeBalls.size() < 3) {
-            randomThreeBalls.add(new Ball(index, generateRandomNumber(MIN_NUMBER, MAX_NUMBER)));
-            index++;
+            randomThreeBalls.add(generateRandomNumber(MIN_NUMBER, MAX_NUMBER));
         }
-        return new ArrayList<>(randomThreeBalls);
+        return randomThreeBalls.stream().mapToInt(Integer::intValue).toArray();
     }
 }
