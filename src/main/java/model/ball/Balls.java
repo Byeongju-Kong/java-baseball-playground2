@@ -9,13 +9,9 @@ public class Balls {
     private final List<Ball> numberBalls;
     private static final int NUMBER_OF_BALLS = 3;
 
-    public Balls(List<Ball> randomBalls) {
-        numberBalls = randomBalls;
-    }
-
-    public Balls(int[] inputBalls) {
-        validateInputBalls(inputBalls);
-        numberBalls = parseInputBalls(inputBalls);
+    public Balls(int[] balls) {
+        validateInputBalls(balls);
+        numberBalls = parseInputBalls(balls);
     }
 
     private void validateInputBalls(int[] inputBalls) {
@@ -35,10 +31,10 @@ public class Balls {
     }
 
     public int countSameNumberInSamePosition(Balls otherBalls) {
-            return (int) otherBalls.numberBalls.stream()
-                    .flatMap(systemBall -> this.numberBalls.stream()
-                            .filter(userBall -> userBall.isEqualNumberInSamePosition(systemBall)))
-                    .count();
+        return (int) otherBalls.numberBalls.stream()
+                .flatMap(systemBall -> this.numberBalls.stream()
+                        .filter(userBall -> userBall.isEqualNumberInSamePosition(systemBall)))
+                .count();
     }
 
     public int countSameNumberInDifferentPosition(Balls otherBalls) {
