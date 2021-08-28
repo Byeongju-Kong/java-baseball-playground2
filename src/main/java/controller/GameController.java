@@ -24,12 +24,16 @@ public class GameController {
     public void play() {
         SystemDisplay.alertInput();
         baseballGame = new BaseballGame(new InputNumberDTO(input()).getValidatedInput(), generateThreeRandomBalls());
+        playWhileNotOver();
+        SystemDisplay.alertOver();
+    }
+
+    private void playWhileNotOver() {
         while (baseballGame.isNotOver()) {
             showRoundResult();
             SystemDisplay.alertInput();
             baseballGame.resetUserBalls(new InputNumberDTO(input()).getValidatedInput());
         }
-        SystemDisplay.alertOver();
     }
 
     private void showRoundResult() {
