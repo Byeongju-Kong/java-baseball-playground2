@@ -1,7 +1,6 @@
 package controller;
 
 import model.BaseballGame;
-import model.dto.CountDTO;
 import model.dto.InputNumberDTO;
 import view.RoundDisplay;
 import view.SystemDisplay;
@@ -27,13 +26,8 @@ public class GameController {
     private void playWhileNotOver() {
         while (baseballGame.isNotOver()) {
             SystemDisplay.alertInput();
-            showRoundResult();
+            RoundDisplay.showRoundResult(baseballGame.getCount(new InputNumberDTO(input()).getValidatedInput()));
         }
-    }
-
-    private void showRoundResult() {
-        CountDTO count = baseballGame.getCount(new InputNumberDTO(input()).getValidatedInput());
-        RoundDisplay.showRoundResult(count);
     }
 
     private int[] generateThreeRandomBalls() {
