@@ -2,14 +2,15 @@ package controller;
 
 import model.BaseballGame;
 import model.dto.InputNumberDTO;
-import view.RoundDisplay;
-import view.SystemDisplay;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import static controller.Input.input;
 import static util.RandomNumber.generateRandomNumber;
+import static view.RoundDisplay.alertInput;
+import static view.RoundDisplay.showRoundResult;
+import static view.SystemDisplay.alertOver;
 
 
 public class GameController {
@@ -20,13 +21,13 @@ public class GameController {
     public void play() {
         baseballGame = new BaseballGame(generateThreeRandomBalls());
         playWhileNotOver();
-        SystemDisplay.alertOver();
+        alertOver();
     }
 
     private void playWhileNotOver() {
         while (baseballGame.isNotOver()) {
-            RoundDisplay.alertInput();
-            RoundDisplay.showRoundResult(baseballGame.getCount(new InputNumberDTO(input()).getValidatedInput()));
+            alertInput();
+            showRoundResult(baseballGame.getCount(new InputNumberDTO(input()).getValidatedInput()));
         }
     }
 

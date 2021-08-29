@@ -1,8 +1,7 @@
 package controller;
 
-import view.SystemDisplay;
-
 import static controller.Input.inputRestart;
+import static view.SystemDisplay.alertRestartInput;
 
 public class SystemController {
     private final GameController gameController;
@@ -22,7 +21,7 @@ public class SystemController {
     }
 
     private boolean willRestartGame() {
-        SystemDisplay.alertRestartInput();
+        alertRestartInput();
         int restartNumber = inputRestart();
         if (restartNumber != RESTART_NUMBER && restartNumber != END_NUMBER) {
             throw new IllegalStateException("재시작 혹은 종료를 위한 입력이 잘못 되었습니다");
