@@ -8,6 +8,10 @@ public class RoundDisplay {
     private RoundDisplay() {
     }
 
+    public static void alertInput() {
+        System.out.print("숫자를 입력하세요 : ");
+    }
+
     public static void showRoundResult(CountDTO count) {
         String result = EMPTY;
         if (count.isNothing()) {

@@ -25,7 +25,7 @@ public class GameController {
 
     private void playWhileNotOver() {
         while (baseballGame.isNotOver()) {
-            SystemDisplay.alertInput();
+            RoundDisplay.alertInput();
             RoundDisplay.showRoundResult(baseballGame.getCount(new InputNumberDTO(input()).getValidatedInput()));
         }
     }
