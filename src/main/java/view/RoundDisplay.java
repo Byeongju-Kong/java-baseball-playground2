@@ -3,7 +3,6 @@ package view;
 import model.dto.CountDTO;
 
 public class RoundDisplay {
-    private static final String EMPTY = "";
 
     private RoundDisplay() {
     }
@@ -13,28 +12,24 @@ public class RoundDisplay {
     }
 
     public static void showRoundResult(CountDTO count) {
-        String result = EMPTY;
+        String result = "";
         if (count.isNothing()) {
             result = "낫씽";
         }
         if (!count.isNothing()) {
-            result += concatStrikeCount(count.getStrike());
-            result += concatBallCount(count.getBall());
+            result += concatenateCount(count.getBall(), count.getStrike());
         }
         System.out.println(result);
     }
 
-    private static String concatStrikeCount(int strike) {
-        if (strike == 0) {
-            return EMPTY;
+    private static String concatenateCount(int strike, int ball) {
+        String concatenateResult = "";
+        if (strike != 0) {
+            concatenateResult += strike + "스트라이크";
         }
-        return strike + "스트라이크";
-    }
-
-    private static String concatBallCount(int ball) {
-        if (ball == 0) {
-            return EMPTY;
+        if (ball != 0) {
+            concatenateResult += ball + "볼";
         }
-        return ball + "볼";
+        return concatenateResult;
     }
 }
