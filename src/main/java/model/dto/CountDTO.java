@@ -4,7 +4,7 @@ public class CountDTO {
     private final int strike;
     private final int ball;
 
-    public CountDTO(int strikeCount, int ballCount) {
+    public CountDTO(final int strikeCount, final int ballCount) {
         strike = strikeCount;
         ball = ballCount;
     }

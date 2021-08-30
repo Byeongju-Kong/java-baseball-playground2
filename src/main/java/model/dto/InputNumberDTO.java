@@ -6,7 +6,7 @@ public class InputNumberDTO {
     private final String[] inputTokens;
     private static final String BASEBALL_NUMBER_REGEX = "^[0-9]*$";
 
-    public InputNumberDTO(String inputString) {
+    public InputNumberDTO(final String inputString) {
         inputTokens = inputString.split("");
         if(hasCharacter()) {
             throw new IllegalArgumentException("숫자가 아닌 입력이 있습니다.");

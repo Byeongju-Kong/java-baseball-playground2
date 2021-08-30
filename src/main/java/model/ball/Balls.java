@@ -9,12 +9,12 @@ public class Balls {
     private final List<Ball> numberBalls;
     private static final int NUMBER_OF_BALLS = 3;
 
-    public Balls(int[] balls) {
+    public Balls(final int[] balls) {
         validateInputBalls(balls);
         numberBalls = parseInputBalls(balls);
     }
 
-    private void validateInputBalls(int[] inputBalls) {
+    private void validateInputBalls(final int[] inputBalls) {
         if (inputBalls.length != NUMBER_OF_BALLS) {
             throw new IllegalArgumentException("숫자의 개수가 잘못되었습니다.");
         }
@@ -23,21 +23,21 @@ public class Balls {
         }
     }
 
-    private List<Ball> parseInputBalls(int[] inputBalls) {
+    private List<Ball> parseInputBalls(final int[] inputBalls) {
         List<Ball> validatedBalls = new ArrayList<>();
         IntStream.range(0, NUMBER_OF_BALLS)
                 .forEach(index -> validatedBalls.add(new Ball(index, inputBalls[index])));
         return validatedBalls;
     }
 
-    public int countSameNumberInSamePosition(Balls otherBalls) {
+    public int countSameNumberInSamePosition(final Balls otherBalls) {
         return (int) otherBalls.numberBalls.stream()
                 .flatMap(systemBall -> this.numberBalls.stream()
                         .filter(userBall -> userBall.isEqualNumberInSamePosition(systemBall)))
                 .count();
     }
 
-    public int countSameNumberInDifferentPosition(Balls otherBalls) {
+    public int countSameNumberInDifferentPosition(final Balls otherBalls) {
         return (int) otherBalls.numberBalls.stream()
                 .flatMap(systemBall -> this.numberBalls.stream()
                         .filter(userBall -> userBall.isEqualNumberInDifferentPosition(systemBall)))

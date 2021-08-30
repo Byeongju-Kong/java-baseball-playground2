@@ -7,7 +7,7 @@ public class BaseballGame {
     private final Balls systemBalls;
     private boolean notOver;
 
-    public BaseballGame(int[] systemBalls) {
+    public BaseballGame(final int[] systemBalls) {
         this.systemBalls = new Balls(systemBalls);
         notOver = true;
     }
@@ -16,7 +16,7 @@ public class BaseballGame {
         return notOver;
     }
 
-    public CountDTO getCount(int[] inputBalls) {
+    public CountDTO getCount(final int[] inputBalls) {
         Balls userBalls = new Balls(inputBalls);
         int strikeCount = systemBalls.countSameNumberInSamePosition(userBalls);
         int ballCount = systemBalls.countSameNumberInDifferentPosition(userBalls);
