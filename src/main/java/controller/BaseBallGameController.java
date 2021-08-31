@@ -5,13 +5,13 @@ import model.dto.CountDTO;
 import model.dto.InputNumberDTO;
 import util.Random;
 import util.RandomNumber;
-import view.RoundDisplay;
+import view.roundDisplay.RoundDisplay;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import static controller.Input.input;
-import static view.RoundDisplays.findRoundDisplayStrategy;
+import static view.roundDisplay.RoundDisplays.findRoundDisplayStrategy;
 import static view.SystemDisplay.alertInput;
 import static view.SystemDisplay.alertOver;
 
