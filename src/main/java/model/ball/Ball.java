@@ -1,11 +1,11 @@
 package model.ball;
 
 public class Ball {
-    private final int position;
+    private final Position position;
     private final BaseballNumber number;
 
     public Ball(final int position, final int number) {
-        this.position = position;
+        this.position = new Position(position);
         this.number = new BaseballNumber(number);
     }
 
@@ -21,7 +21,7 @@ public class Ball {
         return this.number.equals(number);
     }
 
-    private boolean hasSamePosition(final int position) {
-        return this.position == position;
+    private boolean hasSamePosition(final Position position) {
+        return this.position.equals(position);
     }
 }
