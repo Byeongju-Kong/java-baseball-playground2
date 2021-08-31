@@ -8,9 +8,8 @@ public class SystemController {
     private static final int RESTART_NUMBER = 1;
     private static final int END_NUMBER = 2;
 
-    //TODO 생성자를 통해 주입하는 것을 고려
-    public SystemController() {
-        gameController = new GameController();
+    public SystemController(GameController gameController) {
+        this.gameController = gameController;
     }
 
     public void run() {
