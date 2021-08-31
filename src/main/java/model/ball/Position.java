@@ -4,6 +4,8 @@ import java.util.Objects;
 
 public class Position {
     private final int value;
+    private static final int MIN_POSITION_VALUE = 0;
+    private static final int MAX_POSITION_VALUE = 2;
 
     public Position(int position) {
         validatePosition(position);
@@ -11,7 +13,7 @@ public class Position {
     }
 
     private void validatePosition(int position) {
-        if (position < 0 || position > 2) {
+        if (position < MIN_POSITION_VALUE || position > MAX_POSITION_VALUE) {
             throw new IllegalArgumentException("위치 값이 잘못 되었습니다.");
         }
     }
