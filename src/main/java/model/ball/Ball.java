@@ -10,10 +10,18 @@ public class Ball {
     }
 
     public boolean isEqualNumberInDifferentPosition(final Ball otherBall) {
-        return this.number.equals(otherBall.number) && this.position != otherBall.position;
+        return otherBall.hasEqualNumber(this.number) && !otherBall.hasSamePosition(this.position);
     }
 
     public boolean isEqualNumberInSamePosition(final Ball otherBall) {
-        return this.number.equals(otherBall.number) && this.position == otherBall.position;
+        return otherBall.hasEqualNumber(this.number) && otherBall.hasSamePosition(this.position);
+    }
+
+    private boolean hasEqualNumber(final BaseballNumber number) {
+        return this.number.equals(number);
+    }
+
+    private boolean hasSamePosition(final int position) {
+        return this.position == position;
     }
 }
