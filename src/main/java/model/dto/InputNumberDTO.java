@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class InputNumberDTO {
     private final String[] inputTokens;
+    private static final String BASEBALL_NUMBER_REGEX = "^[0-9]*$";
 
     public InputNumberDTO(final String inputString) {
         inputTokens = inputString.split("");
@@ -13,9 +14,8 @@ public class InputNumberDTO {
     }
 
     private boolean hasCharacter() {
-        String baseballNumberRegex = "^[0-9]*$";
         return Arrays.stream(inputTokens)
-                .anyMatch(token -> !token.matches(baseballNumberRegex));
+                .anyMatch(token -> !token.matches(BASEBALL_NUMBER_REGEX));
     }
 
     public int[] getValidatedInput() {
