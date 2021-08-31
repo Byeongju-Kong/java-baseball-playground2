@@ -29,7 +29,7 @@ public class Balls {
                 .forEach(index -> validatedBalls.add(new Ball(index, inputBalls[index])));
         return validatedBalls;
     }
-
+    //TODO : map과 Enum으로 수정
     public int countSameNumberInSamePosition(final Balls otherBalls) {
         return (int) otherBalls.numberBalls.stream()
                 .flatMap(systemBall -> this.numberBalls.stream()
