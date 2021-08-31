@@ -1,15 +1,19 @@
 package controller;
 
 import model.BaseballGame;
+import model.dto.CountDTO;
 import model.dto.InputNumberDTO;
 import util.Random;
 import util.RandomNumber;
+import view.RoundDisplay;
+import view.RoundDisplayNothing;
+import view.RoundDisplaySomething;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import static controller.Input.input;
-import static view.RoundDisplay.showRoundResult;
+import static view.RoundDisplays.findRoundDisplayStrategy;
 import static view.SystemDisplay.alertInput;
 import static view.SystemDisplay.alertOver;
 
@@ -28,7 +32,9 @@ public class GameController {
     private void playWhileNotOver() {
         while (baseballGame.isNotOver()) {
             alertInput();
-            showRoundResult(baseballGame.getCount(new InputNumberDTO(input()).getValidatedInput()));
+            CountDTO countDTO = baseballGame.getCount(new InputNumberDTO(input()).getValidatedInput());
+            RoundDisplay roundDisplay = findRoundDisplayStrategy(countDTO);
+            roundDisplay.showRoundResult(countDTO);
         }
     }
 
