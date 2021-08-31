@@ -9,8 +9,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static controller.Input.input;
-import static view.RoundDisplay.alertInput;
 import static view.RoundDisplay.showRoundResult;
+import static view.SystemDisplay.alertInput;
 import static view.SystemDisplay.alertOver;
 
 
