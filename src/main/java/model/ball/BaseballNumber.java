@@ -4,6 +4,8 @@ import java.util.Objects;
 
 public class BaseballNumber {
     private final int number;
+    private static final int MIN_NUMBER = 1;
+    private static final int MAX_NUMBER = 9;
 
     public BaseballNumber(final int number) {
         validateNumber(number);
@@ -11,7 +13,7 @@ public class BaseballNumber {
     }
 
     private void validateNumber(final int number) {
-        if (number < 1 || number > 9) {
+        if (number < MIN_NUMBER || number > MAX_NUMBER) {
             throw new IllegalArgumentException("야구게임을 위한 숫자가 1보다 작거나 9보다 큽니다");
         }
     }
