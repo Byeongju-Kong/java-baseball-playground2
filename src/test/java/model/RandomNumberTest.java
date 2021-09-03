@@ -1,5 +1,6 @@
-package util;
+package model;
 
+import model.RandomNumber;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +10,7 @@ class RandomNumberTest {
     @Test
     @DisplayName("난수의 범위를 지정하여 범위 내의 난수를 얻는다.")
     void createRandomNumber() {
-        Random random = new RandomNumber();
+        RandomNumber random = new RandomNumber();
         int actual = random.generate(1, 10);
         assertThat(actual).isBetween(1, 10);
     }

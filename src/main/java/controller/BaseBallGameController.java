@@ -3,8 +3,7 @@ package controller;
 import model.BaseballGame;
 import model.dto.CountDTO;
 import model.dto.InputNumberDTO;
-import util.Random;
-import util.RandomNumber;
+import model.RandomNumber;
 import view.rounddisplay.RoundDisplay;
 
 import java.util.HashSet;
@@ -38,7 +37,7 @@ public class BaseBallGameController implements GameController{
 
     private int[] generateThreeRandomBalls() {
         Set<Integer> randomThreeBalls = new HashSet<>();
-        Random randomNumber = new RandomNumber();
+        RandomNumber randomNumber = new RandomNumber();
         while (randomThreeBalls.size() < 3) {
             randomThreeBalls.add(randomNumber.generate(MIN_NUMBER, MAX_NUMBER));
         }

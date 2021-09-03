@@ -1,9 +1,8 @@
-package util;
+package model;
 
 import java.util.Random;
-//TODO : 전략패턴으로 다른 랜덤 값이 필요한 상황에 대비
-public class RandomNumber implements util.Random {
 
+public class RandomNumber {
     public int generate(int startInclusive, int endInclusive) {
         Random random = new Random();
 
