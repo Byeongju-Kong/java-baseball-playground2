@@ -1,8 +1,11 @@
 package model.ball;
 
+import model.BallStatus;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Balls {
@@ -30,25 +33,17 @@ public class Balls {
         return validatedBalls;
     }
 
-    public int countSameNumberInSamePosition(final Balls otherBalls) {
-        return (int) numberBalls.stream()
-                .filter(otherBalls::hasSameNumberInSamePosition)
-                .count();
-    }
-
-    private boolean hasSameNumberInSamePosition(final Ball otherBall) {
+    public List<BallStatus> compare(final Balls otherBalls) {
         return numberBalls.stream()
-                .anyMatch(otherBall::isEqualNumberInSamePosition);
+                .map(otherBalls::checkBallStatus)
+                .collect(Collectors.toList());
     }
 
-    public int countSameNumberInDifferentPosition(final Balls otherBalls) {
-        return (int) numberBalls.stream()
-                .filter(otherBalls::hasSameNumberInDifferentPosition)
-                .count();
-    }
-
-    private boolean hasSameNumberInDifferentPosition(final Ball otherBall) {
+    private BallStatus checkBallStatus(final Ball otherBall) {
         return numberBalls.stream()
-                .anyMatch(otherBall::isEqualNumberInDifferentPosition);
+                .map(otherBall::compare)
+                .filter(ballStatus -> ballStatus.isBall() || ballStatus.isStrike())
+                .findAny()
+                .orElse(BallStatus.NOTHING);
     }
 }
