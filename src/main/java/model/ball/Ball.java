@@ -1,5 +1,7 @@
 package model.ball;
 
+import model.BallStatus;
+
 public class Ball {
     private final Position position;
     private final BaseballNumber number;
@@ -9,19 +11,21 @@ public class Ball {
         this.number = new BaseballNumber(number);
     }
 
-    public boolean isEqualNumberInDifferentPosition(final Ball otherBall) {
-        return otherBall.hasEqualNumber(this.number) && !otherBall.hasSamePosition(this.position);
+    public BallStatus compare(final Ball otherBall) {
+        if (isEqualNumberInSamePosition(otherBall)) {
+            return BallStatus.STRIKE;
+        }
+        if(isEqualNumberInDifferentPosition(otherBall)) {
+            return BallStatus.BALL;
+        }
+        return BallStatus.NOTHING;
     }
 
-    public boolean isEqualNumberInSamePosition(final Ball otherBall) {
-        return otherBall.hasEqualNumber(this.number) && otherBall.hasSamePosition(this.position);
+    private boolean isEqualNumberInDifferentPosition(final Ball otherBall) {
+        return otherBall.number.equals(this.number) && !otherBall.position.equals(this.position);
     }
 
-    private boolean hasEqualNumber(final BaseballNumber number) {
-        return this.number.equals(number);
-    }
-
-    private boolean hasSamePosition(final Position position) {
-        return this.position.equals(position);
+    private boolean isEqualNumberInSamePosition(final Ball otherBall) {
+        return otherBall.number.equals(this.number) && otherBall.position.equals(this.position);
     }
 }
