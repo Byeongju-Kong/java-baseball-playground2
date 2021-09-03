@@ -29,18 +29,26 @@ public class Balls {
                 .forEach(index -> validatedBalls.add(new Ball(index, inputBalls[index])));
         return validatedBalls;
     }
-    //TODO : map과 Enum으로 수정
+
     public int countSameNumberInSamePosition(final Balls otherBalls) {
-        return (int) otherBalls.numberBalls.stream()
-                .flatMap(systemBall -> this.numberBalls.stream()
-                        .filter(userBall -> userBall.isEqualNumberInSamePosition(systemBall)))
+        return (int) numberBalls.stream()
+                .filter(otherBalls::hasSameNumberInSamePosition)
                 .count();
     }
 
+    private boolean hasSameNumberInSamePosition(final Ball otherBall) {
+        return numberBalls.stream()
+                .anyMatch(otherBall::isEqualNumberInSamePosition);
+    }
+
     public int countSameNumberInDifferentPosition(final Balls otherBalls) {
-        return (int) otherBalls.numberBalls.stream()
-                .flatMap(systemBall -> this.numberBalls.stream()
-                        .filter(userBall -> userBall.isEqualNumberInDifferentPosition(systemBall)))
+        return (int) numberBalls.stream()
+                .filter(otherBalls::hasSameNumberInDifferentPosition)
                 .count();
+    }
+
+    private boolean hasSameNumberInDifferentPosition(final Ball otherBall) {
+        return numberBalls.stream()
+                .anyMatch(otherBall::isEqualNumberInDifferentPosition);
     }
 }
