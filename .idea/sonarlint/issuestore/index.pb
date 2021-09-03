@@ -13,8 +13,6 @@ N
 src/main/java/util/Random.java,e/5/e585872788573c62077a543ba8be9a0617020ea3
 X
 (src/test/java/util/RandomNumberTest.java,9/7/9781e76bafd1d514f9ac688e4823cd5be9fda29b
-W
-'src/test/java/model/ball/BallsTest.java,c/3/c3a84437261a305aadcb235e5e839eaa7a138498
 Z
 *src/test/java/model/ball/PositionTest.java,7/2/726ae337c9cefcf2d4ca3b54d8125cbee84972ff
 \
