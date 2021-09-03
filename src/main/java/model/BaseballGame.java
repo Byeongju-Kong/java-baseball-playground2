@@ -25,7 +25,7 @@ public class BaseballGame {
         return new CountDTO(ballStatuses);
     }
 
-    private void checkGameIsOver(List<BallStatus> ballStatuses) {
+    private void checkGameIsOver(final List<BallStatus> ballStatuses) {
         if (ballStatuses.stream().allMatch(BallStatus::isStrike)){
             notOver = false;
         }

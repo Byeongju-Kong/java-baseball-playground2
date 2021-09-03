@@ -7,12 +7,12 @@ public class Position {
     private static final int MIN_POSITION_VALUE = 0;
     private static final int MAX_POSITION_VALUE = 2;
 
-    public Position(int position) {
+    public Position(final int position) {
         validatePosition(position);
         this.value = position;
     }
 
-    private void validatePosition(int position) {
+    private void validatePosition(final int position) {
         if (position < MIN_POSITION_VALUE || position > MAX_POSITION_VALUE) {
             throw new IllegalArgumentException("위치 값이 잘못 되었습니다.");
         }

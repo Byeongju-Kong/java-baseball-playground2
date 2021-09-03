@@ -8,7 +8,7 @@ public class SystemController {
     private static final int RESTART_NUMBER = 1;
     private static final int END_NUMBER = 2;
 
-    public SystemController(GameController gameController) {
+    public SystemController(final GameController gameController) {
         this.gameController = gameController;
     }
 
