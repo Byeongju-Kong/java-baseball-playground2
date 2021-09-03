@@ -1,10 +1,14 @@
 package model.dto;
 
+import model.BallStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+
+import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -12,7 +16,7 @@ class CountDTOTest {
     private CountDTO count;
     @BeforeEach
     void setUp() {
-        count = new CountDTO(2, 1);
+        count = new CountDTO(Arrays.asList(BallStatus.STRIKE, BallStatus.STRIKE, BallStatus.BALL));
     }
 
     @Test
@@ -28,10 +32,11 @@ class CountDTOTest {
     }
 
     @ParameterizedTest
-    @CsvSource(value = {"1, 1 ,false", "0, 0,true"})
+    @CsvSource(value = {"BallStatus.NOTHING, BallStatus.NOTHING, BallStatus.NOTHING, true",
+            "BallStatus.STRIKE, BallStatus.NOTHING, BallStatus.NOTHING, false"})
     @DisplayName("낫씽일 경우를 반환한다")
-    void isNothing(int strikeCount, int ballCount, boolean expect) {
-        count = new CountDTO(strikeCount, ballCount);
+    void isNothing(List<BallStatus> ballStatuses, boolean expect) {
+        count = new CountDTO(ballStatuses);
         boolean actual = count.isNothing();
         assertThat(actual).isEqualTo(expect);
     }
