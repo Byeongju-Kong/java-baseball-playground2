@@ -15,11 +15,13 @@ Z
 ,src/main/java/controller/GameController.java,8/b/8bb88644e2407c8e62c22e68ac7ffa4dac28ef68
 S
 #src/main/java/controller/Input.java,0/b/0ba450bc619d5beb74f886d622ea5a86d7af9f7a
-R
-"src/main/java/controller/Main.java,6/5/650fa1777788e3539b02217f72bbbc04443393f5
-^
-.src/main/java/controller/SystemController.java,9/0/90995ecc2f416e32043f29487dad91c462ac85f6
 d
 4src/main/java/controller/BaseBallGameController.java,5/7/575dd7bb9a3363d053a469c83b206bac5adce17a
 T
 $src/main/java/util/RandomNumber.java,b/c/bc664676a0074c2e1812df93638f6dc681809b0c
+V
+&src/test/java/model/ball/BallTest.java,0/7/07b8bcb7fef5f9f777a372739393639d0f41ce8a
+W
+'src/test/java/model/ball/BallsTest.java,c/3/c3a84437261a305aadcb235e5e839eaa7a138498
+S
+#src/main/java/model/BallStatus.java,5/a/5a51c2d875a62607058c4ffa009a271cfe1d247f

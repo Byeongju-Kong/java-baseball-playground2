@@ -15,7 +15,7 @@ public class Ball {
         if (isEqualNumberInSamePosition(otherBall)) {
             return BallStatus.STRIKE;
         }
-        if(isEqualNumberInDifferentPosition(otherBall)) {
+        if (isEqualNumberInDifferentPosition(otherBall)) {
             return BallStatus.BALL;
         }
         return BallStatus.NOTHING;
