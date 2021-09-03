@@ -3,6 +3,8 @@ package model;
 import model.ball.Balls;
 import model.dto.CountDTO;
 
+import java.util.List;
+
 public class BaseballGame {
     private final Balls systemBalls;
     private boolean notOver;
@@ -18,11 +20,14 @@ public class BaseballGame {
 
     public CountDTO getCount(final int[] inputBalls) {
         Balls userBalls = new Balls(inputBalls);
-        int strikeCount = systemBalls.countSameNumberInSamePosition(userBalls);
-        int ballCount = systemBalls.countSameNumberInDifferentPosition(userBalls);
-        if (strikeCount == 3) {
+        List<BallStatus> ballStatuses = userBalls.compare(systemBalls);
+        checkGameIsOver(ballStatuses);
+        return new CountDTO(ballStatuses);
+    }
+
+    private void checkGameIsOver(List<BallStatus> ballStatuses) {
+        if (ballStatuses.stream().allMatch(BallStatus::isStrike)){
             notOver = false;
         }
-        return new CountDTO(strikeCount, ballCount);
     }
 }
