@@ -9,9 +9,8 @@ import view.rounddisplay.RoundDisplay;
 import java.util.HashSet;
 import java.util.Set;
 
-import static controller.Input.input;
+import static view.SystemDisplay.input;
 import static view.rounddisplay.RoundDisplays.findRoundDisplayStrategy;
-import static view.SystemDisplay.alertInput;
 import static view.SystemDisplay.alertOver;
 
 
@@ -28,7 +27,6 @@ public class BaseBallGameController implements GameController{
 
     private void playWhileNotOver() {
         while (baseballGame.isNotOver()) {
-            alertInput();
             CountDTO countDTO = baseballGame.getCount(new InputNumberDTO(input()).getValidatedInput());
             RoundDisplay roundDisplay = findRoundDisplayStrategy(countDTO);
             roundDisplay.showRoundResult(countDTO);
