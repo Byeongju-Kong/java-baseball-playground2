@@ -4,30 +4,34 @@ import model.BaseballGame;
 import model.dto.CountDTO;
 import model.dto.InputNumberDTO;
 import model.RandomNumber;
+import view.Displayable;
 import view.rounddisplay.RoundDisplay;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import static view.SystemDisplay.input;
 import static view.rounddisplay.RoundDisplays.findRoundDisplayStrategy;
-import static view.SystemDisplay.alertOver;
 
 
-public class BaseBallGameController implements GameController{
+public class BaseBallGameController{
     private BaseballGame baseballGame;
+    private final Displayable display;
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 9;
+
+    public BaseBallGameController(Displayable display) {
+        this.display = display;
+    }
 
     public void play() {
         baseballGame = new BaseballGame(generateThreeRandomBalls());
         playWhileNotOver();
-        alertOver();
+        display.alertOver();
     }
 
     private void playWhileNotOver() {
         while (baseballGame.isNotOver()) {
-            CountDTO countDTO = baseballGame.getCount(new InputNumberDTO(input()).getValidatedInput());
+            CountDTO countDTO = baseballGame.getCount(new InputNumberDTO(display.input()).getValidatedInput());
             RoundDisplay roundDisplay = findRoundDisplayStrategy(countDTO);
             roundDisplay.showRoundResult(countDTO);
         }

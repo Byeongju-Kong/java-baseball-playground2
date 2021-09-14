@@ -1,26 +1,29 @@
 package controller;
 
-import static view.SystemDisplay.inputRestart;
+
+import view.Displayable;
 
 public class SystemController {
-    private final GameController gameController;
+    private final BaseBallGameController baseBallGameController;
+    private final Displayable display;
     private static final int RESTART_NUMBER = 1;
     private static final int END_NUMBER = 2;
 
-    public SystemController(final GameController gameController) {
-        this.gameController = gameController;
+    public SystemController(Displayable display) {
+        this.display = display;
+        baseBallGameController = new BaseBallGameController(display);
     }
 
     public void run() {
         boolean restart = true;
         while (restart) {
-            gameController.play();
+            baseBallGameController.play();
             restart = willRestartGame();
         }
     }
 
     private boolean willRestartGame() {
-        int restartNumber = inputRestart();
+        int restartNumber = display.inputRestart();
         if (restartNumber != RESTART_NUMBER && restartNumber != END_NUMBER) {
             throw new IllegalStateException("재시작 혹은 종료를 위한 입력이 잘못 되었습니다");
         }
