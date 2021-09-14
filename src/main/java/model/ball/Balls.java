@@ -4,6 +4,7 @@ import model.BallStatus;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -30,13 +31,13 @@ public class Balls {
         List<Ball> validatedBalls = new ArrayList<>();
         IntStream.range(0, NUMBER_OF_BALLS)
                 .forEach(index -> validatedBalls.add(new Ball(index, inputBalls[index])));
-        return validatedBalls;
+        return Collections.unmodifiableList(validatedBalls);
     }
 
     public List<BallStatus> compare(final Balls otherBalls) {
         return numberBalls.stream()
                 .map(otherBalls::checkBallStatus)
-                .collect(Collectors.toList());
+                .collect(Collectors.toUnmodifiableList());
     }
 
     private BallStatus checkBallStatus(final Ball otherBall) {
