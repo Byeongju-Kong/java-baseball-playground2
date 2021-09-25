@@ -14,10 +14,10 @@ import static view.rounddisplay.RoundDisplays.findRoundDisplayStrategy;
 
 
 public class BaseBallGameController{
-    private BaseballGame baseballGame;
-    private final Displayable display;
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 9;
+    private BaseballGame baseballGame;
+    private final Displayable display;
 
     public BaseBallGameController(Displayable display) {
         this.display = display;

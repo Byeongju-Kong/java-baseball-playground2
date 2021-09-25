@@ -6,10 +6,10 @@ import view.SystemDisplay;
 import java.util.Scanner;
 
 public class SystemController {
-    private final BaseBallGameController baseBallGameController;
-    private final Displayable display;
     private static final int RESTART_NUMBER = 1;
     private static final int END_NUMBER = 2;
+    private final BaseBallGameController baseBallGameController;
+    private final Displayable display;
 
     public SystemController(Displayable display) {
         this.display = display;
