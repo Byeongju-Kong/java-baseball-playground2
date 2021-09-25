@@ -3,8 +3,8 @@ package model.dto;
 import java.util.Arrays;
 
 public class InputNumberDTO {
-    private final String[] inputTokens;
     private static final String BASEBALL_NUMBER_REGEX = "^[0-9]*$";
+    private final String[] inputTokens;
 
     public InputNumberDTO(final String inputString) {
         inputTokens = inputString.split("");

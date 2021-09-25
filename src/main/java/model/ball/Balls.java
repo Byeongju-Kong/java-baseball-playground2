@@ -10,8 +10,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Balls {
-    private final List<Ball> numberBalls;
     private static final int NUMBER_OF_BALLS = 3;
+    private final List<Ball> numberBalls;
 
     public Balls(final int[] balls) {
         validateInputBalls(balls);

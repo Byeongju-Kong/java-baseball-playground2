@@ -3,9 +3,9 @@ package model.ball;
 import java.util.Objects;
 
 public class Position {
-    private final int value;
     private static final int MIN_POSITION_VALUE = 0;
     private static final int MAX_POSITION_VALUE = 2;
+    private final int value;
 
     public Position(final int position) {
         validatePosition(position);
