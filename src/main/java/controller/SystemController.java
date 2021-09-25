@@ -1,6 +1,9 @@
 package controller;
 
 import view.Displayable;
+import view.SystemDisplay;
+
+import java.util.Scanner;
 
 public class SystemController {
     private final BaseBallGameController baseBallGameController;
@@ -27,5 +30,12 @@ public class SystemController {
             throw new IllegalStateException("재시작 혹은 종료를 위한 입력이 잘못 되었습니다");
         }
         return restartNumber == RESTART_NUMBER;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Displayable display = new SystemDisplay(scanner);
+        SystemController systemController = new SystemController(display);
+        systemController.run();
     }
 }
