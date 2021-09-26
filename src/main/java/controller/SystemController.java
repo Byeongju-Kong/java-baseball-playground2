@@ -11,7 +11,7 @@ public class SystemController {
     private final BaseBallGameController baseBallGameController;
     private final Displayable display;
 
-    public SystemController(Displayable display) {
+    public SystemController(final Displayable display) {
         this.display = display;
         baseBallGameController = new BaseBallGameController(display);
     }

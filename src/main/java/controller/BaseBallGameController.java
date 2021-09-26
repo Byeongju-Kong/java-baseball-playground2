@@ -19,7 +19,7 @@ public class BaseBallGameController{
     private BaseballGame baseballGame;
     private final Displayable display;
 
-    public BaseBallGameController(Displayable display) {
+    public BaseBallGameController(final Displayable display) {
         this.display = display;
     }
 

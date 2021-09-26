@@ -3,7 +3,7 @@ package model;
 import java.util.Random;
 
 public class RandomNumber {
-    public int generate(int startInclusive, int endInclusive) {
+    public int generate(final int startInclusive, final int endInclusive) {
         Random random = new Random();
 
         if (startInclusive > endInclusive) {
