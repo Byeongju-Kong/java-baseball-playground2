@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
-class InputDTOTest {
+class InputNumberDTOTest {
     @Test
     @DisplayName("숫자만을 요소로 가지는 문자열을 받아 유효검사를 하고 int[]로 반환한다. ")
     void getValidatedToken() {
