@@ -20,7 +20,7 @@ public class BaseballGame {
 
     public CountDTO getCount(final int[] inputBalls) {
         Balls userBalls = new Balls(inputBalls);
-        List<BallStatus> ballStatuses = userBalls.compare(systemBalls);
+        List<BallStatus> ballStatuses = systemBalls.compare(userBalls);
         checkGameIsOver(ballStatuses);
         return new CountDTO(ballStatuses);
     }
