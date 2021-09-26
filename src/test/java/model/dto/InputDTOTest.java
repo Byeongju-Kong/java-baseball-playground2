@@ -20,6 +20,6 @@ class InputDTOTest {
     @DisplayName("문자 요소가 포함된 문자열을 받으면 예외를 발생시킨다.")
     void getValidatedToken_ExceptionByNonNumber() {
         assertThatIllegalArgumentException().isThrownBy(() -> new InputNumberDTO("ikl"))
-                .withMessage("숫자가 아닌 입력이 있습니다.");
+                .withMessage("음수 혹은 특수문자가 입력되었습니다.");
     }
 }

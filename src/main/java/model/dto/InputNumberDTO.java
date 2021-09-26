@@ -9,7 +9,7 @@ public class InputNumberDTO {
     public InputNumberDTO(final String inputString) {
         inputTokens = inputString.split("");
         if(hasCharacter()) {
-            throw new IllegalArgumentException("숫자가 아닌 입력이 있습니다.");
+            throw new IllegalArgumentException("음수 혹은 특수문자가 입력되었습니다.");
         }
     }
 
