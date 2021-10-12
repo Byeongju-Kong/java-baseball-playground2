@@ -1,9 +1,12 @@
-package model;
+package util;
 
 import java.util.Random;
 
 public class RandomNumber {
-    public int generate(final int startInclusive, final int endInclusive) {
+    private RandomNumber() {
+    }
+
+    public static int generateRandomNumber(final int startInclusive, final int endInclusive) {
         Random random = new Random();
 
         if (startInclusive > endInclusive) {
