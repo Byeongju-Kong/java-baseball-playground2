@@ -14,14 +14,14 @@ class BaseballGameTest {
 
     @ParameterizedTest
     @DisplayName("두 야구게임 숫자를 받아, Count객체를 받아 StrikeCount를 얻는다.")
-    @MethodSource("provideBallsAndStrikeCount")
+    @MethodSource("provideBaseballsAndStrikeCount")
     void getCount_Strike(final int[] userNumbers, final int[] systemNumbers, final int expect) {
         baseballGame = new BaseballGame(systemNumbers);
         int actual = baseballGame.getCount(userNumbers).getStrikeCount();
         assertThat(actual).isEqualTo(expect);
     }
 
-    private static Stream<Arguments> provideBallsAndStrikeCount() {
+    private static Stream<Arguments> provideBaseballsAndStrikeCount() {
         return Stream.of(
                 Arguments.of(new int[]{1, 2, 3}, new int[]{1, 2, 3}, 3),
                 Arguments.of(new int[]{1, 2, 3}, new int[]{1, 2, 4}, 2),
@@ -32,14 +32,14 @@ class BaseballGameTest {
 
     @ParameterizedTest
     @DisplayName("두 야구게임 숫자를 받아, Count객체를 받아 BallCount를 얻는다.")
-    @MethodSource("provideBallsAndBallCount")
+    @MethodSource("provideBaseballsAndBallCount")
     void getCount_Ball(final int[] userNumbers, final int[] systemNumbers, final int expect) {
         baseballGame = new BaseballGame(systemNumbers);
         int actual = baseballGame.getCount(userNumbers).getBallCount();
         assertThat(actual).isEqualTo(expect);
     }
 
-    private static Stream<Arguments> provideBallsAndBallCount() {
+    private static Stream<Arguments> provideBaseballsAndBallCount() {
         return Stream.of(
                 Arguments.of(new int[]{1, 2, 3}, new int[]{3, 1, 2}, 3),
                 Arguments.of(new int[]{1, 2, 3}, new int[]{3, 1, 4}, 2),
@@ -50,7 +50,7 @@ class BaseballGameTest {
 
     @ParameterizedTest
     @DisplayName("두 야구게임 숫자를 받아, 게임 종료 여부를 반환한다.")
-    @MethodSource("provideIsNotOver")
+    @MethodSource("provideBaseballsAndIsNotOver")
     void isNotOver(final int[] userNumbers, final int[] systemNumbers, final boolean expect) {
         baseballGame = new BaseballGame(systemNumbers);
         baseballGame.getCount(userNumbers);
@@ -58,7 +58,7 @@ class BaseballGameTest {
         assertThat(actual).isEqualTo(expect);
     }
 
-    private static Stream<Arguments> provideIsNotOver() {
+    private static Stream<Arguments> provideBaseballsAndIsNotOver() {
         return Stream.of(
                 Arguments.of(new int[]{1, 2, 3}, new int[]{1, 2, 3}, false),
                 Arguments.of(new int[]{1, 2, 3}, new int[]{1, 2, 4}, true),

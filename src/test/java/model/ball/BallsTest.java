@@ -33,14 +33,14 @@ class BallsTest {
 
     @ParameterizedTest
     @DisplayName("Balls 객체를 받아 BallStatus들을 반환한다.")
-    @MethodSource("provideBallsAndBallStatuses")
+    @MethodSource("provideBaseballsAndBallStatuses")
     void compare(final int[] inputBalls, final int[] randomBalls, final List<BallStatus> expect) {
         Balls userBalls = new Balls(inputBalls);
         Balls systemBalls = new Balls(randomBalls);
         assertThat(userBalls.compare(systemBalls)).isEqualTo(expect);
     }
 
-    private static Stream<Arguments> provideBallsAndBallStatuses() {
+    private static Stream<Arguments> provideBaseballsAndBallStatuses() {
         return Stream.of(
                 Arguments.of(new int[]{1, 2, 3}, new int[]{1, 2, 3},
                         Arrays.asList(BallStatus.STRIKE, BallStatus.STRIKE, BallStatus.STRIKE)),
