@@ -37,7 +37,7 @@ class CountDTOTest {
     @ParameterizedTest
     @MethodSource("provideBallStatusAndNothingCheck")
     @DisplayName("낫씽일 경우를 반환한다")
-    void isNothing(List<BallStatus> ballStatuses, boolean expect) {
+    void isNothing(final List<BallStatus> ballStatuses, final boolean expect) {
         count = new CountDTO(ballStatuses);
         boolean actual = count.isNothing();
         assertThat(actual).isEqualTo(expect);

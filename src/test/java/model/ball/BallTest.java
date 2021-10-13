@@ -19,7 +19,7 @@ class BallTest {
     @ParameterizedTest
     @DisplayName("Ball 객체를 받아 STRIKE, BALL, NOTHING 여부를 반환한다.")
     @CsvSource({"1, 1, STRIKE", "2, 1, BALL", "2, 2, NOTHING"})
-    void isEqualNumberInSamePosition(int position, int number, BallStatus expect) {
+    void isEqualNumberInSamePosition(final int position, final int number, final BallStatus expect) {
         BallStatus actual = userBall.compare(new Ball(position, number));
         assertThat(actual).isEqualTo(expect);
     }

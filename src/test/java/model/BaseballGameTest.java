@@ -15,7 +15,7 @@ class BaseballGameTest {
     @ParameterizedTest
     @DisplayName("두 야구게임 숫자를 받아, Count객체를 받아 StrikeCount를 얻는다.")
     @MethodSource("provideBallsAndStrikeCount")
-    void getCount_Strike(int[] userNumbers, int[] systemNumbers, int expect) {
+    void getCount_Strike(final int[] userNumbers, final int[] systemNumbers, final int expect) {
         baseballGame = new BaseballGame(systemNumbers);
         int actual = baseballGame.getCount(userNumbers).getStrike();
         assertThat(actual).isEqualTo(expect);
@@ -33,7 +33,7 @@ class BaseballGameTest {
     @ParameterizedTest
     @DisplayName("두 야구게임 숫자를 받아, Count객체를 받아 BallCount를 얻는다.")
     @MethodSource("provideBallsAndBallCount")
-    void getCount_Ball(int[] userNumbers, int[] systemNumbers, int expect) {
+    void getCount_Ball(final int[] userNumbers, final int[] systemNumbers, final int expect) {
         baseballGame = new BaseballGame(systemNumbers);
         int actual = baseballGame.getCount(userNumbers).getBall();
         assertThat(actual).isEqualTo(expect);
@@ -51,7 +51,7 @@ class BaseballGameTest {
     @ParameterizedTest
     @DisplayName("두 야구게임 숫자를 받아, 게임 종료 여부를 반환한다.")
     @MethodSource("provideIsNotOver")
-    void isNotOver(int[] userNumbers, int[] systemNumbers, boolean expect) {
+    void isNotOver(final int[] userNumbers, final int[] systemNumbers, final boolean expect) {
         baseballGame = new BaseballGame(systemNumbers);
         baseballGame.getCount(userNumbers);
         boolean actual = baseballGame.isNotOver();

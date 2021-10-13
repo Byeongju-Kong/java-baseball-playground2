@@ -34,7 +34,7 @@ class BallsTest {
     @ParameterizedTest
     @DisplayName("Balls 객체를 받아 BallStatus들을 반환한다.")
     @MethodSource("provideBallsAndBallStatuses")
-    void compare(int[] inputBalls, int[] randomBalls, List<BallStatus> expect) {
+    void compare(final int[] inputBalls, final int[] randomBalls, final List<BallStatus> expect) {
         Balls userBalls = new Balls(inputBalls);
         Balls systemBalls = new Balls(randomBalls);
         assertThat(userBalls.compare(systemBalls)).isEqualTo(expect);
