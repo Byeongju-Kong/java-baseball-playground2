@@ -16,6 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class CountDTOTest {
     private CountDTO count;
+
     @BeforeEach
     void setUp() {
         count = new CountDTO(Arrays.asList(BallStatus.STRIKE, BallStatus.STRIKE, BallStatus.BALL));

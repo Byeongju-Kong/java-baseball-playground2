@@ -40,7 +40,7 @@ class BallsTest {
         assertThat(userBalls.compare(systemBalls)).isEqualTo(expect);
     }
 
-    private static Stream<Arguments> provideBallsAndBallStatuses(){
+    private static Stream<Arguments> provideBallsAndBallStatuses() {
         return Stream.of(
                 Arguments.of(new int[]{1, 2, 3}, new int[]{1, 2, 3},
                         Arrays.asList(BallStatus.STRIKE, BallStatus.STRIKE, BallStatus.STRIKE)),

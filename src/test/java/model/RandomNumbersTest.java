@@ -13,5 +13,4 @@ class RandomNumbersTest {
         int[] numbers = randomNumbers.generateRandomNumbers(1, 3);
         assertThat(numbers.length).isBetween(1, 4);
     }
-
 }
