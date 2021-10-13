@@ -17,11 +17,11 @@ public class CountDTO {
                 .count();
     }
 
-    public int getStrike() {
+    public int getStrikeCount() {
         return strike;
     }
 
-    public int getBall() {
+    public int getBallCount() {
         return ball;
     }
 

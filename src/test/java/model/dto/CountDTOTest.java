@@ -25,13 +25,13 @@ class CountDTOTest {
     @Test
     @DisplayName("Ball 카운트를 반환한다.")
     void getBall() {
-        assertThat(count.getBall()).isEqualTo(1);
+        assertThat(count.getBallCount()).isEqualTo(1);
     }
 
     @Test
     @DisplayName("Strike 카운트를 반환한다.")
     void getStrike() {
-        assertThat(count.getStrike()).isEqualTo(2);
+        assertThat(count.getStrikeCount()).isEqualTo(2);
     }
 
     @ParameterizedTest

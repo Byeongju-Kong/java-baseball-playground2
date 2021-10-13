@@ -8,7 +8,7 @@ public class RoundDisplaySomething implements RoundDisplay {
     }
 
     public void showRoundResult(CountDTO count) {
-        String result = concatenateCount(count.getBall(), count.getStrike());
+        String result = concatenateCount(count.getBallCount(), count.getStrikeCount());
         System.out.println(result);
     }
 

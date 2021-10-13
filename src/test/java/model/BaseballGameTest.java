@@ -17,7 +17,7 @@ class BaseballGameTest {
     @MethodSource("provideBallsAndStrikeCount")
     void getCount_Strike(final int[] userNumbers, final int[] systemNumbers, final int expect) {
         baseballGame = new BaseballGame(systemNumbers);
-        int actual = baseballGame.getCount(userNumbers).getStrike();
+        int actual = baseballGame.getCount(userNumbers).getStrikeCount();
         assertThat(actual).isEqualTo(expect);
     }
 
@@ -35,7 +35,7 @@ class BaseballGameTest {
     @MethodSource("provideBallsAndBallCount")
     void getCount_Ball(final int[] userNumbers, final int[] systemNumbers, final int expect) {
         baseballGame = new BaseballGame(systemNumbers);
-        int actual = baseballGame.getCount(userNumbers).getBall();
+        int actual = baseballGame.getCount(userNumbers).getBallCount();
         assertThat(actual).isEqualTo(expect);
     }
 
