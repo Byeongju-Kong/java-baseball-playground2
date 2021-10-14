@@ -32,7 +32,8 @@ public class BaseBallGameController{
 
     private void playWhileNotOver() {
         while (baseballGame.isNotOver()) {
-            List<BallStatus> ballStatuses = baseballGame.getCount(new InputNumberDTO(display.input()).getValidatedInput());
+            int[] inputNumbers = new InputNumberDTO(display.input()).getValidatedInput();
+            List<BallStatus> ballStatuses = baseballGame.getCount(inputNumbers);
             CountDTO countDTO = new CountDTO(ballStatuses);
             RoundDisplay roundDisplay = findRoundDisplayStrategy(countDTO);
             roundDisplay.showRoundResult(countDTO);
