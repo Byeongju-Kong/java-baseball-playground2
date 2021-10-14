@@ -1,7 +1,6 @@
 package model;
 
 import model.ball.Balls;
-import model.dto.CountDTO;
 
 import java.util.List;
 
@@ -18,11 +17,11 @@ public class BaseballGame {
         return notOver;
     }
 
-    public CountDTO getCount(final int[] inputBalls) {
+    public List<BallStatus> getCount(final int[] inputBalls) {
         Balls userBalls = new Balls(inputBalls);
         List<BallStatus> ballStatuses = systemBalls.compare(userBalls);
         checkGameIsOver(ballStatuses);
-        return new CountDTO(ballStatuses);
+        return ballStatuses;
     }
 
     private void checkGameIsOver(final List<BallStatus> ballStatuses) {

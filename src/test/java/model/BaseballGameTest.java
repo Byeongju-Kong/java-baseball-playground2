@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,7 +18,10 @@ class BaseballGameTest {
     @MethodSource("provideBaseballsAndStrikeCount")
     void getCount_Strike(final int[] userNumbers, final int[] systemNumbers, final int expect) {
         baseballGame = new BaseballGame(systemNumbers);
-        int actual = baseballGame.getCount(userNumbers).getStrikeCount();
+        List<BallStatus> ballStatuses = baseballGame.getCount(userNumbers);
+        int actual = (int) ballStatuses.stream()
+                .filter(BallStatus::isStrike)
+                .count();
         assertThat(actual).isEqualTo(expect);
     }
 
@@ -35,7 +39,10 @@ class BaseballGameTest {
     @MethodSource("provideBaseballsAndBallCount")
     void getCount_Ball(final int[] userNumbers, final int[] systemNumbers, final int expect) {
         baseballGame = new BaseballGame(systemNumbers);
-        int actual = baseballGame.getCount(userNumbers).getBallCount();
+        List<BallStatus> ballStatuses = baseballGame.getCount(userNumbers);
+        int actual = (int) ballStatuses.stream()
+                .filter(BallStatus::isBall)
+                .count();
         assertThat(actual).isEqualTo(expect);
     }
 
