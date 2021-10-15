@@ -9,12 +9,6 @@ S
 #src/main/java/view/Displayable.java,3/9/390a8659a76733126f87f68f5d2119c4d879a68b
 S
 #src/main/java/model/BallStatus.java,5/a/5a51c2d875a62607058c4ffa009a271cfe1d247f
-V
-&src/main/java/model/ball/Position.java,e/c/ec75da08d3f24c580dbe817925b7afeada9b62ab
-\
-,src/main/java/model/ball/BaseballNumber.java,c/7/c76507de3379af016ca0c4efdb21b8936df1e056
-R
-"src/main/java/model/ball/Ball.java,5/d/5d5b253ce913f69e389d8dd4f749f008ff4e632b
 ^
 .src/main/java/controller/SystemController.java,9/0/90995ecc2f416e32043f29487dad91c462ac85f6
 R
